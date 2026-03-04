@@ -1,11 +1,12 @@
 {% extends 'static/base.html' %}
 {% block content %}
 <div class="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-auto">
-
+  <h1>{{ore.ore_straordinario}}</h1>
   <div class="p-4">
     <h6 class="mb-2 text-slate-800 text-xl font-semibold">
-      Website Review Check
+      Ore di lavoro
     </h6>
+
     <div
   class="relative flex flex-col w-full h-full overflow-scroll text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
   <table class="w-full text-left table-auto min-w-max overflow-hidden">
@@ -27,119 +28,52 @@
           </p>
         </th>
         <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+          <p class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
+            Data inserimento ore
+          </p>
+        </th>
+        <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
           <p class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70"></p>
         </th>
       </tr>
     </thead>
     <tbody>
+{% for ore in ore_lavorate %}
       <tr>
+
         <td class="p-4 border-b border-blue-gray-50">
           <p class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-            John Michael
+            {{ore.ore_straordinario}}
           </p>
         </td>
         <td class="p-4 border-b border-blue-gray-50">
           <p class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-            Manager
+            {{ore.ore_permesso}}
           </p>
         </td>
         <td class="p-4 border-b border-blue-gray-50">
+          {% if ore.ore_ferie is not None %}
           <p class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-            23/04/18
+            {{ore.ore_ferie}}
+          </p>
+          {% else %}
+           <p class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+            0
+          </p>
+          {% endif %}
+        </td>
+        <td class="p-4 border-b border-blue-gray-50">
+          <p class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+            {{ore.data_inserimento_ore}}
           </p>
         </td>
+
         <td class="p-4 border-b border-blue-gray-50">
           <button command="show-modal" commandfor="dialog" class=" cursor-pointer rounded-md bg-gray-950/5 px-2.5 py-1.5 text-sm font-semibold text-gray-900 hover:bg-gray-950/10">Modifica</button>
         </td>
       </tr>
-      <tr>
-        <td class="p-4 border-b border-blue-gray-50">
-          <p class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-            Alexa Liras
-          </p>
-        </td>
-        <td class="p-4 border-b border-blue-gray-50">
-          <p class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-            Developer
-          </p>
-        </td>
-        <td class="p-4 border-b border-blue-gray-50">
-          <p class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-            23/04/18
-          </p>
-        </td>
-        <td class="p-4 border-b border-blue-gray-50">
-          <a href="#" class="block font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900">
-            Edit
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td class="p-4 border-b border-blue-gray-50">
-          <p class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-            Laurent Perrier
-          </p>
-        </td>
-        <td class="p-4 border-b border-blue-gray-50">
-          <p class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-            Executive
-          </p>
-        </td>
-        <td class="p-4 border-b border-blue-gray-50">
-          <p class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-            19/09/17
-          </p>
-        </td>
-        <td class="p-4 border-b border-blue-gray-50">
-          <a href="#" class="block font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900">
-            Edit
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td class="p-4 border-b border-blue-gray-50">
-          <p class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-            Michael Levi
-          </p>
-        </td>
-        <td class="p-4 border-b border-blue-gray-50">
-          <p class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-            Developer
-          </p>
-        </td>
-        <td class="p-4 border-b border-blue-gray-50">
-          <p class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-            24/12/08
-          </p>
-        </td>
-        <td class="p-4 border-b border-blue-gray-50">
-          <a href="#" class="block font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900">
-            Edit
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td class="p-4">
-          <p class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-            Richard Gran
-          </p>
-        </td>
-        <td class="p-4">
-          <p class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-            Manager
-          </p>
-        </td>
-        <td class="p-4">
-          <p class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-            04/10/21
-          </p>
-        </td>
-        <td class="p-4">
-          <a href="#" class="block font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900">
-            Edit
-          </a>
-        </td>
-      </tr>
+{% endfor %}
+
     </tbody>
   </table>
 </div>
